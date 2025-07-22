@@ -1,0 +1,90 @@
+@use "../../../scss/mixins" as *;
+@use "../../../scss/variables" as *;
+
+header {
+  width: 65%;
+  height: 65px;
+  position: fixed;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  place-content: center;
+  padding: 10px;
+  //   color: white;
+  left: 50%;
+  top: 3%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-family: $font-condensed;
+  //   background-color: $gray-700;
+  transition: ease-in 0.2s;
+  @include flex(row, space-around, center, 0.5rem);
+  z-index: 1999;
+
+  &.shrink {
+    width: 54%;
+    // background-color: #010205;
+    color: white;
+
+    background: rgba(1, 2, 5, 0.78);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.1px);
+    -webkit-backdrop-filter: blur(11.1px);
+    border: 1px solid rgba(1, 2, 5, 0.3);
+
+    ul {
+      li {
+        a {
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  ul#header-left,
+  ul#header-right {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+      width: fit-content;
+      list-style: none;
+    }
+  }
+
+  ul#header-right {
+    width: fit-content;
+    @include flex(row, space-between, center, 1.5rem);
+
+    li {
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        color: black;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 90%;
+
+    &.shrink {
+      width: 75%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    width: 100%;
+    border-radius: 0;
+    top: 0;
+
+    &.shrink {
+      width: 100%;
+    }
+  }
+}
