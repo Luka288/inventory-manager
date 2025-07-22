@@ -1,0 +1,13 @@
+@use "../../scss/variables" as *;
+
+main {
+  width: 100%;
+  background-color: $bg-primary;
+
+  p {
+    font-family: $font-primary;
+    color: $text-primary;
+    font-size: 30px;
+    text-align: center;
+  }
+}

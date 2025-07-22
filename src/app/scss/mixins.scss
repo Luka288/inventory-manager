@@ -1,0 +1,17 @@
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin card {
+  // TODO: Add card styles
+}
+
+@mixin heading($size: 1.5rem, $weight: 600) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $text-primary;
+}
