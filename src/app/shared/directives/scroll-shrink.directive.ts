@@ -10,7 +10,7 @@ export class ScrollShrinkDirective {
   onWindowScroll() {
     const scrollY = window.scrollY || window.pageYOffset;
 
-    if (scrollY > 100 && window.screen.width > 425) {
+    if (scrollY > 100) {
       this.renderer.addClass(this.el.nativeElement, 'shrink');
     } else {
       this.renderer.removeClass(this.el.nativeElement, 'shrink');

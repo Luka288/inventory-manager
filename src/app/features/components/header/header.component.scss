@@ -80,11 +80,11 @@ header {
 @media (max-width: 600px) {
   header {
     width: 100%;
-    border-radius: 0;
     top: 0;
 
     &.shrink {
       width: 100%;
+      border-radius: 0;
     }
   }
 }
