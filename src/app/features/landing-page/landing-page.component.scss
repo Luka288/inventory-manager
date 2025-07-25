@@ -110,6 +110,42 @@ main {
       }
     }
   }
+
+  #cta-sec {
+    width: 100%;
+    padding-top: 50px;
+    margin-bottom: 40px;
+
+    .cta-content {
+      justify-self: center;
+      text-align: center;
+      place-content: center;
+      font-family: $font-primary;
+
+      h1 {
+        font-size: 26px;
+        font-weight: 600;
+        color: $text-primary;
+      }
+
+      button {
+        width: 250px;
+        height: 54px;
+        color: white;
+        background-color: $bg-blue;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        transition: ease-in 0.2s;
+
+        &:hover {
+          background-color: #8f89ff;
+          transition: ease-out 0.2s;
+        }
+      }
+    }
+  }
 }
 
 @keyframes fadeInUp {
