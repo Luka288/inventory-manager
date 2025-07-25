@@ -2,7 +2,6 @@
 
 main {
   width: 100%;
-  height: 1900px;
   background-color: $bg-primary;
 
   #hero-sec {
@@ -42,9 +41,16 @@ main {
   }
 
   #features-sec {
+    width: 75%;
+    height: fit-content;
+    justify-self: center;
     background-color: $bg-primary;
     font-family: $font-primary;
     color: $text-primary;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 
     opacity: 0;
     transform: translateY(40px);
@@ -66,6 +72,43 @@ main {
         line-height: 1.6;
       }
     }
+
+    .feature-card {
+      max-width: 100%;
+      background-color: $bg-secondary;
+      box-sizing: border-box;
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba($shadow-color, 0.06);
+
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .image-sec {
+        img {
+          width: 100%;
+          height: 250px;
+        }
+      }
+
+      .feature-data {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .feature-title {
+          font-size: 26px;
+          font-weight: 600;
+          color: $text-primary;
+        }
+
+        .feature-content {
+          width: 75%;
+          font-size: 20px;
+        }
+      }
+    }
   }
 }
 
@@ -73,5 +116,28 @@ main {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    #features-sec {
+      .feature-card {
+        justify-content: center;
+        gap: 15px;
+
+        .feature-data {
+          text-align: center;
+
+          .feature-content {
+            width: auto;
+
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
   }
 }
