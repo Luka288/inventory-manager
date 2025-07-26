@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -10,8 +12,26 @@
   // TODO: Add card styles
 }
 
-@mixin heading($size: 1.5rem, $weight: 600) {
+@mixin heading($size: 1.5rem, $weight: 600, $font: $font-primary) {
   font-size: $size;
+  font-family: $font;
   font-weight: $weight;
   color: $text-primary;
+}
+
+@mixin baseButton($height: 54px) {
+  width: 250px;
+  height: $height;
+  color: white;
+  background-color: $bg-blue;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: ease-in 0.2s;
+
+  &:hover {
+    background-color: #8f89ff;
+    transition: ease-out 0.2s;
+  }
 }

@@ -1,1 +1,247 @@
-<p>auth-page works!</p>
+<main>
+  <aside id="auth-placeholder">
+    <div id="text-content">
+      <h1>Registration</h1>
+      <p class="subtitle">
+        Start tracking and managing your inventory efficiently. Sign up now to
+        unlock smart tools for your business!
+      </p>
+    </div>
+    <img src="../../../assets/images/registration.svg" alt="" />
+    <div class="btn-section">
+      <button routerLink="/home">Go Back to home</button>
+    </div>
+  </aside>
+  <aside id="auth-container">
+    <div class="auth-title">
+      <h2>{{ toggleForm() === "login" ? "Authorize" : "Register" }}</h2>
+    </div>
+
+    <!-- ! login form -->
+    <div class="login-form" *ngIf="toggleForm() === 'login'">
+      <form [formGroup]="loginForm">
+        <div class="form-groups">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              id="email"
+              formControlName="email"
+              [ngClass]="{
+                error:
+                  loginForm.controls.email.invalid &&
+                  loginForm.controls.email.touched
+              }"
+            />
+            <p
+              *ngIf="
+                loginForm.controls.email.hasError('required') &&
+                loginForm.controls.email.touched
+              "
+              class="error-text"
+            >
+              Email is required
+            </p>
+
+            <p
+              *ngIf="
+                loginForm.controls.email.hasError('email') &&
+                loginForm.controls.email.touched
+              "
+              class="error-text"
+            >
+              Please enter a valid email address
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="password"
+              formControlName="password"
+              [ngClass]="{
+                error:
+                  loginForm.controls.password.invalid &&
+                  loginForm.controls.password.touched
+              }"
+            />
+            <p
+              *ngIf="
+                loginForm.controls.password.hasError('required') &&
+                loginForm.controls.password.touched
+              "
+              class="error-text"
+            >
+              password is required
+            </p>
+            <p
+              *ngIf="
+                loginForm.controls.password.hasError('minlength') &&
+                loginForm.controls.password.touched
+              "
+              class="error-text"
+            >
+              password must be at least 8 characters long
+            </p>
+
+            <p
+              *ngIf="
+                loginForm.controls.password.hasError('maxlength') &&
+                loginForm.controls.password.touched
+              "
+              class="error-text"
+            >
+              password must not exceed 16 characters
+            </p>
+          </div>
+        </div>
+
+        <div class="togglers">
+          <a (click)="toggleForm.set('register')">Dont have an account?</a>
+        </div>
+
+        <button type="submit" (click)="login()">Login</button>
+      </form>
+    </div>
+
+    <!-- ! registration form -->
+    <div class="registration-form" *ngIf="toggleForm() === 'register'">
+      <form [formGroup]="registrationForm">
+        <div class="form-groups">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              id="email"
+              formControlName="email"
+              [ngClass]="{
+                error:
+                  registrationForm.controls.email.invalid &&
+                  registrationForm.controls.email.touched
+              }"
+            />
+            <p
+              *ngIf="
+                registrationForm.controls.email.hasError('required') &&
+                registrationForm.controls.email.touched
+              "
+              class="error-text"
+            >
+              Email is required
+            </p>
+
+            <p
+              *ngIf="
+                registrationForm.controls.email.hasError('email') &&
+                registrationForm.controls.email.touched
+              "
+              class="error-text"
+            >
+              Please enter a valid email address
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              placeholder="Enter your username"
+              id="username"
+              formControlName="username"
+              [ngClass]="{
+                error:
+                  registrationForm.controls.username.invalid &&
+                  registrationForm.controls.username.touched
+              }"
+            />
+
+            <p
+              *ngIf="
+                registrationForm.controls.username.hasError('required') &&
+                registrationForm.controls.username.touched
+              "
+              class="error-text"
+            >
+              Username is required
+            </p>
+
+            <p
+              *ngIf="
+                registrationForm.controls.username.hasError('minlength') &&
+                registrationForm.controls.username.touched
+              "
+              class="error-text"
+            >
+              Username must be at least 3 characters long
+            </p>
+
+            <p
+              *ngIf="
+                registrationForm.controls.username.hasError('maxlength') &&
+                registrationForm.controls.username.touched
+              "
+              class="error-text"
+            >
+              Username must not exceed 20 characters
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="password"
+              formControlName="password"
+              [ngClass]="{
+                error:
+                  registrationForm.controls.password.invalid &&
+                  registrationForm.controls.password.touched
+              }"
+            />
+
+            <p
+              *ngIf="
+                registrationForm.controls.password.hasError('required') &&
+                registrationForm.controls.password.touched
+              "
+              class="error-text"
+            >
+              Password is required
+            </p>
+
+            <p
+              *ngIf="
+                registrationForm.controls.password.hasError('minlength') &&
+                registrationForm.controls.password.touched
+              "
+              class="error-text"
+            >
+              Password must be at least 8 characters long
+            </p>
+
+            <p
+              *ngIf="
+                registrationForm.controls.password.hasError('maxlength') &&
+                registrationForm.controls.password.touched
+              "
+              class="error-text"
+            >
+              Password must not exceed 16 characters
+            </p>
+          </div>
+        </div>
+
+        <div class="togglers">
+          <a (click)="toggleForm.set('login')">Have an account?</a>
+        </div>
+
+        <button type="submit" (click)="register()">Register</button>
+      </form>
+    </div>
+  </aside>
+</main>

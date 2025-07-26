@@ -1,0 +1,141 @@
+@use "../../scss/mixins" as *;
+@use "../../scss/variables" as *;
+
+main {
+  width: 100%;
+  height: 100vh;
+  padding-top: 35px;
+  box-sizing: border-box;
+  @include flex(row, center, center, 20px);
+
+  #auth-placeholder {
+    width: 90%;
+    max-width: 550px;
+    height: 600px;
+    background-color: $bg-tertiary;
+    border-radius: 30px;
+    text-align: center;
+
+    #text-content {
+      width: 100%;
+      justify-items: center;
+
+      h1 {
+        @include heading(34px, 700);
+      }
+
+      p {
+        width: 75%;
+        @include heading(18px, 500, $font-secondary);
+        color: $text-secondary;
+        margin-top: 10px;
+        text-align: left;
+      }
+    }
+
+    img {
+      width: 350px;
+      height: fit-content;
+    }
+
+    .btn-section {
+      button {
+        @include baseButton(44px);
+      }
+    }
+  }
+
+  #auth-container {
+    width: 90%;
+    max-width: 500px;
+    height: 600px;
+    background-color: $bg-secondary;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 20px;
+
+    .auth-title {
+      h2 {
+        text-align: center;
+        @include heading(28px, 600);
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .form-group {
+          justify-self: center;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            font-family: $font-primary;
+            font-weight: 500;
+            font-size: 16px;
+          }
+
+          input {
+            width: 350px;
+            height: 44px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            border-bottom: 4px solid $border-dark;
+            font-size: 18px;
+
+            &:focus {
+              border-bottom: 4px solid $bg-blue;
+            }
+
+            &.error {
+              border-bottom: 4px solid red;
+            }
+          }
+
+          .error-text {
+            margin: 0;
+            font-family: $font-primary;
+            font-size: 15px;
+            color: red;
+          }
+        }
+      }
+
+      .togglers {
+        width: 350px;
+        margin-top: 10px;
+
+        a {
+          color: blue;
+          font-family: $font-secondary;
+          margin: 0px;
+          cursor: pointer;
+          text-align: left;
+        }
+      }
+
+      button {
+        margin-top: 20px;
+        @include baseButton(44px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 95px;
+
+    #auth-placeholder {
+      display: none;
+    }
+  }
+}
