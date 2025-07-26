@@ -1,7 +1,9 @@
 <main>
   <aside id="auth-placeholder">
     <div id="text-content">
-      <h1>Registration</h1>
+      <h1>
+        {{ toggleForm() === "login" ? "Welcome Back!" : "Join Us!" }}
+      </h1>
       <p class="subtitle">
         Start tracking and managing your inventory efficiently. Sign up now to
         unlock smart tools for your business!
@@ -242,6 +244,9 @@
 
         <button type="submit" (click)="register()">Register</button>
       </form>
+    </div>
+    <div class="home-btn">
+      <button routerLink="/home">Go back to home</button>
     </div>
   </aside>
 </main>

@@ -127,6 +127,15 @@ main {
         @include baseButton(44px);
       }
     }
+
+    .home-btn {
+      display: none;
+
+      button {
+        width: fit-content;
+        @include baseButton(44px);
+      }
+    }
   }
 }
 
@@ -136,6 +145,53 @@ main {
 
     #auth-placeholder {
       display: none;
+    }
+
+    #auth-container {
+      .home-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+          @include baseButton(44px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  main {
+    #auth-container {
+      width: 90%;
+      max-width: 500px;
+      height: 600px;
+      background-color: $bg-secondary;
+      border-radius: 30px;
+      box-sizing: border-box;
+      padding: 20px;
+
+      .auth-title {
+        h2 {
+          text-align: center;
+          @include heading(28px, 600);
+        }
+      }
+
+      form {
+        .form-groups {
+          .form-group {
+            input {
+              width: 250px;
+            }
+          }
+        }
+
+        .togglers {
+          width: auto;
+        }
+      }
     }
   }
 }
