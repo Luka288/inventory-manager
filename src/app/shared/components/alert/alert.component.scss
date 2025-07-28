@@ -1,0 +1,85 @@
+@use "../../../scss/variables" as *;
+@use "../../../scss/mixins" as *;
+
+#alert-body {
+  width: 90%;
+  max-width: 350px;
+  height: 54px;
+  border-radius: 7px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  color: white;
+  box-sizing: border-box;
+  padding: 7px;
+
+  display: flex;
+  justify-content: space-between;
+
+  &.error {
+    background-color: red;
+  }
+
+  &.success {
+    background-color: green;
+  }
+
+  &.warning {
+    background-color: orange;
+  }
+
+  &.info {
+    background-color: blue;
+  }
+
+  &.enter {
+    animation: dropFromTop 0.4s ease-out forwards;
+  }
+
+  &.exit {
+    animation: riseToTop 0.4s ease-in forwards;
+  }
+
+  #alert-data {
+    h1 {
+      margin: 0;
+      font-family: $font-primary;
+      font-size: 17px;
+    }
+
+    p {
+      margin: 0;
+      font-family: $font-secondary;
+    }
+  }
+
+  .buttons {
+    i {
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes dropFromTop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes riseToTop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+}

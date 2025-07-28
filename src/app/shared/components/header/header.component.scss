@@ -9,13 +9,11 @@ header {
   box-sizing: border-box;
   place-content: center;
   padding: 10px;
-  //   color: white;
   left: 50%;
   top: 3%;
   transform: translateX(-50%);
   font-size: 24px;
   font-family: $font-condensed;
-  //   background-color: $gray-700;
   transition: ease-in 0.2s;
   @include flex(row, space-around, center, 0.5rem);
   z-index: 1999;

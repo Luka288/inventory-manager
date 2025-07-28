@@ -76,6 +76,7 @@ export class AuthPageComponent {
 
     this.authService.registration(UserRegistration.fromUserFrom(userData));
     this.registrationForm.reset();
+    this.toggleForm.set('login');
   }
 
   login() {
