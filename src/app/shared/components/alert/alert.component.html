@@ -1,4 +1,4 @@
-<section id="alert-body" [ngClass]="[tyoeTest, animationClass]">
+<section id="alert-body" [ngClass]="[alertData?.type, animationClass]">
   <div id="alert-data">
     <h1>
       {{ alertData?.title }}
@@ -9,6 +9,6 @@
   </div>
 
   <div class="buttons">
-    <i class="fa-solid fa-x"></i>
+    <i class="fa-solid fa-x" (click)="closeAlert.emit()"></i>
   </div>
 </section>

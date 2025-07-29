@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FireAuthService } from '../../shared/services/fire-auth.service';
 import { UserRegistration } from '../../shared/models/auth.model';
 import {
@@ -19,6 +19,7 @@ import {
 })
 export class AuthPageComponent {
   private readonly authService = inject(FireAuthService);
+  private readonly router = inject(ActivatedRoute);
 
   toggleForm = signal<'login' | 'register'>('login');
 
@@ -62,6 +63,16 @@ export class AuthPageComponent {
     }),
   });
 
+  ngOnInit(): void {
+    this.router.queryParams.subscribe((params) => {
+      if (params['mode'] === 'register') {
+        this.toggleForm.set('register');
+      } else if (params['mode'] === 'login') {
+        this.toggleForm.set('login');
+      }
+    });
+  }
+
   register() {
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
@@ -89,5 +100,7 @@ export class AuthPageComponent {
       email: this.loginForm.controls.email.value,
       password: this.loginForm.controls.password.value,
     };
+
+    this.authService.logIn(userData.email, userData.password);
   }
 }

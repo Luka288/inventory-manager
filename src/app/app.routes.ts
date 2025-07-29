@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './features/main-layout/main-layout.component';
+import { authGuard } from './shared/guards/auth.guard';
+import { userGuard } from './shared/guards/user.guard';
 
 export const routes: Routes = [
   {
@@ -19,6 +21,7 @@ export const routes: Routes = [
           import('./features/landing-page/landing-page.component').then(
             (c) => c.LandingPageComponent
           ),
+        canActivate: [userGuard],
       },
     ],
   },
@@ -30,6 +33,7 @@ export const routes: Routes = [
       import('./features/auth-page/auth-page.component').then(
         (c) => c.AuthPageComponent
       ),
+    canActivate: [userGuard],
   },
 
   {
@@ -39,6 +43,7 @@ export const routes: Routes = [
       import('./features/dashboard/dashboard.component').then(
         (c) => c.DashboardComponent
       ),
+    canActivate: [authGuard],
   },
 
   {

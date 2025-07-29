@@ -2,5 +2,6 @@
   *ngIf="alert()"
   [alertData]="alert()"
   [animationClass]="animationClass()"
+  (closeAlert)="closeAlert()"
 />
 <router-outlet />

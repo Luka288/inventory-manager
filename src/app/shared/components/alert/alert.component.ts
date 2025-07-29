@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { alertBody } from '../../interfaces/alert.interface';
 import { CommonModule } from '@angular/common';
 import { AlertService } from '../../services/alert.service';
@@ -12,6 +12,5 @@ import { AlertService } from '../../services/alert.service';
 export class AlertComponent {
   @Input() alertData: alertBody | null = null;
   @Input() animationClass: 'enter' | 'exit' = 'enter';
-
-  tyoeTest = 'success';
+  @Output() closeAlert = new EventEmitter<void>();
 }

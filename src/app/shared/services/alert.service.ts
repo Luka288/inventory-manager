@@ -12,12 +12,18 @@ export class AlertService {
   private alertClass = new BehaviorSubject<'enter' | 'exit'>('enter');
   alertClass$ = this.alertClass.asObservable();
 
+  private alertTimeout: ReturnType<typeof setTimeout> | null = null;
+  private exitTimeout: ReturnType<typeof setTimeout> | null = null;
+
   showAlert(
     message: string,
     title: string,
     type: 'success' | 'error' | 'info' | 'warning'
   ) {
-    // Logic to display alert
+    if (this.alertTimeout) clearTimeout(this.alertTimeout);
+    if (this.exitTimeout) clearTimeout(this.exitTimeout);
+
+    this.alertClass.next('enter');
 
     this.displayAlert.next({
       message: message,
@@ -25,16 +31,19 @@ export class AlertService {
       type: type,
     });
 
-    setTimeout(() => {
+    this.alertTimeout = setTimeout(() => {
       this.alertClass.next('exit');
 
-      setTimeout(() => {
+      this.exitTimeout = setTimeout(() => {
         this.displayAlert.next(null);
       }, 400);
     }, 3000);
   }
 
   clearAlert() {
+    if (this.alertTimeout) clearTimeout(this.alertTimeout);
+    if (this.exitTimeout) clearTimeout(this.exitTimeout);
+
     this.alertClass.next('exit');
     this.displayAlert.next(null);
   }

@@ -5,11 +5,11 @@
 
   <ul id="header-right">
     <li>
-      <a routerLink="/auth">login</a>
+      <a routerLink="/auth" [queryParams]="{ mode: 'login' }">login</a>
     </li>
 
     <li>
-      <a routerLink="/auth">register</a>
+      <a routerLink="/auth" [queryParams]="{ mode: 'register' }">register</a>
     </li>
   </ul>
 </header>

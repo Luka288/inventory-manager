@@ -26,4 +26,8 @@ export class AppComponent {
       this.animationClass.set(alertClass);
     });
   }
+
+  closeAlert() {
+    this.alertService.clearAlert();
+  }
 }
