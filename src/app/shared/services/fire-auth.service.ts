@@ -2,7 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { User } from './../interfaces/user.interface';
@@ -57,5 +59,21 @@ export class FireAuthService {
       );
       this.router.navigate(['/auth']);
     });
+  }
+
+  async googleAuth() {
+    try {
+      const provider = new GoogleAuthProvider();
+
+      await signInWithPopup(this.auth, provider);
+
+      this.router.navigateByUrl('/dashboard');
+    } catch {
+      this.alertService.showAlert(
+        'Authorized with google',
+        'Success',
+        'success'
+      );
+    }
   }
 }

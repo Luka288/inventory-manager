@@ -18,8 +18,8 @@ import {
   styleUrl: './auth-page.component.scss',
 })
 export class AuthPageComponent {
-  private readonly authService = inject(FireAuthService);
   private readonly router = inject(ActivatedRoute);
+  readonly authService = inject(FireAuthService);
 
   toggleForm = signal<'login' | 'register'>('login');
 

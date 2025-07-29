@@ -51,6 +51,16 @@ header {
     }
   }
 
+  #header-left {
+    li {
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        color: black;
+      }
+    }
+  }
+
   ul#header-right {
     width: fit-content;
     @include flex(row, space-between, center, 1.5rem);

@@ -248,5 +248,16 @@
     <div class="home-btn">
       <button routerLink="/home">Go back to home</button>
     </div>
+
+    <div class="third-party-auth">
+      <div class="container-title">
+        <h3>
+          {{ toggleForm() === "login" ? "login with:" : "sign in with:" }}
+        </h3>
+      </div>
+      <button id="google-auth" (click)="authService.googleAuth()">
+        <i class="fa-brands fa-google"></i>
+      </button>
+    </div>
   </aside>
 </main>
