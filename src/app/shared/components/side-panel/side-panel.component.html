@@ -1,0 +1,28 @@
+<section>
+  <nav>
+    <ul>
+      <li routerLinkActive="active" routerLink="/dashboard">
+        <a>home</a>
+      </li>
+
+      <li routerLinkActive="active" routerLink="/inventory">
+        <a>inventory</a>
+      </li>
+      <li routerLinkActive="active" routerLink="/suppliers">
+        <a>suppliers</a>
+      </li>
+
+      <li routerLinkActive="active" routerLink="/sales">
+        <a>sales</a>
+      </li>
+
+      <li routerLinkActive="active" routerLink="/orders">
+        <a>orders</a>
+      </li>
+
+      <li>
+        <a (click)="authService.logOut()">log out</a>
+      </li>
+    </ul>
+  </nav>
+</section>

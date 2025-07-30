@@ -1,2 +1,8 @@
-<p>dashboard works!</p>
-<button (click)="logOut()">log out</button>
+<main>
+  <div class="side-panel">
+    <app-side-panel></app-side-panel>
+  </div>
+  <div class="dashboard-content">
+    <router-outlet></router-outlet>
+  </div>
+</main>

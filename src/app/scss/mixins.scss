@@ -8,8 +8,11 @@
   gap: $gap;
 }
 
-@mixin card {
-  // TODO: Add card styles
+@mixin card($bg-color: #f0f4f8) {
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
 }
 
 @mixin heading($size: 1.5rem, $weight: 600, $font: $font-primary) {
