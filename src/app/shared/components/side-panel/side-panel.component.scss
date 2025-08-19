@@ -10,8 +10,13 @@ section {
   box-shadow: 2px 0 10px rgba($gray-600, 0.1);
   box-sizing: border-box;
   padding: 10px;
+  z-index: 1999;
 
   nav {
+    #mobile-size-ul {
+      display: none;
+    }
+
     ul {
       padding: 0;
 
@@ -41,6 +46,26 @@ section {
 
         &:hover {
           background-color: rgba($gray-300, 0.3);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  section {
+    width: 50px !important;
+
+    nav {
+      ul {
+        li {
+          display: none;
+        }
+      }
+
+      #mobile-size-ul {
+        li {
+          display: block;
         }
       }
     }

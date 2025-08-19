@@ -1,0 +1,38 @@
+@use "../../../scss/mixins" as *;
+@use "../../../scss/variables" as *;
+
+.summary-card {
+  width: 300px;
+  height: 150px;
+  font-family: $font-primary;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  background-color: $bg-secondary;
+  cursor: pointer;
+
+  &.growth {
+    background-color: #d4edda;
+  }
+
+  &.shrinkage {
+    background-color: #f8d7da;
+  }
+
+  &.orders {
+    background-color: #d1ecf1;
+  }
+}
+
+@media (max-width: 425px) {
+  .summary-card {
+    width: 250px;
+  }
+}
+
+@media (max-width: 370px) {
+  .summary-card {
+    width: 150px;
+    height: fit-content;
+  }
+}

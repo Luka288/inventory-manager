@@ -1,0 +1,31 @@
+<main>
+  <div class="summary-cards">
+    <app-summary-card
+      title="Sold"
+      [value]="134"
+      subText="items"
+      iconName="box"
+      [trend]="{ direction: 'up', percent: 8.2 }"
+    ></app-summary-card>
+
+    <app-summary-card
+      title="inventory here"
+      [value]="134"
+      subText="in inventory"
+      iconName="box"
+    ></app-summary-card>
+
+    <app-summary-card
+      title="orders this month"
+      [value]="134"
+      subText="in inventory"
+      iconName="box"
+      [bgColor]="'#d1ecf1'"
+    ></app-summary-card>
+  </div>
+
+  <section id="middle-section">
+    <div id="chart-container"></div>
+    <div id="orders-container"></div>
+  </section>
+</main>

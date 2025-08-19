@@ -3,8 +3,10 @@
 
 main {
   width: 100%;
-  height: 100%;
   display: flex;
+  // box-sizing: border-box;
+  // padding: 15px;
+  gap: 15px;
 
   .side-panel {
     width: 200px;
@@ -15,6 +17,13 @@ main {
     flex: 1;
     height: 100%;
     position: relative;
-    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 650px) {
+  main {
+    .side-panel {
+      width: 50px;
+    }
   }
 }

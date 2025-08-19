@@ -1,22 +1,47 @@
 <section>
   <nav>
+    <ul id="mobile-size-ul">
+      <li>
+        <i class="fa-solid fa-bars"></i>
+      </li>
+    </ul>
     <ul>
-      <li routerLinkActive="active" routerLink="/dashboard">
+      <li
+        routerLinkActive="active"
+        routerLink="/dashboard/overview"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a>home</a>
       </li>
 
-      <li routerLinkActive="active" routerLink="/inventory">
+      <li
+        routerLinkActive="active"
+        routerLink="/dashboard/inventory"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a>inventory</a>
       </li>
-      <li routerLinkActive="active" routerLink="/suppliers">
+      <li
+        routerLinkActive="active"
+        routerLink="/suppliers"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a>suppliers</a>
       </li>
 
-      <li routerLinkActive="active" routerLink="/sales">
+      <li
+        routerLinkActive="active"
+        routerLink="/sales"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a>sales</a>
       </li>
 
-      <li routerLinkActive="active" routerLink="/orders">
+      <li
+        routerLinkActive="active"
+        routerLink="/orders"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a>orders</a>
       </li>
 

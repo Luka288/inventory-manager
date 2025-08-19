@@ -44,6 +44,31 @@ export const routes: Routes = [
         (c) => c.DashboardComponent
       ),
     canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'overview',
+      },
+
+      {
+        path: 'overview',
+        title: 'Inventory - overview',
+        loadComponent: () =>
+          import('./features/overview/overview.component').then(
+            (c) => c.OverviewComponent
+          ),
+      },
+
+      {
+        path: 'inventory',
+        title: 'Inventory Managment - Inventory',
+        loadComponent: () =>
+          import('./features/inventory/inventory.component').then(
+            (c) => c.InventoryComponent
+          ),
+      },
+    ],
   },
 
   {

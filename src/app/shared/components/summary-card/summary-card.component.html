@@ -1,0 +1,30 @@
+<div
+  [ngClass]="{
+    'summary-card': true,
+    shrinkage: trend?.direction === 'down',
+    growth: trend?.direction === 'up'
+  }"
+  [ngStyle]="{ backgroundColor: bgColor }"
+>
+  <div class="summary-content">
+    <div class="card-title">
+      <h1>
+        {{ title }}
+      </h1>
+    </div>
+    <div class="card-body">
+      <p>
+        {{ value }}
+        <span>
+          {{ subText }}
+        </span>
+      </p>
+    </div>
+
+    <div class="card-footer" *ngIf="trend">
+      <span>
+        {{ trend.direction === "up" ? "▲" : "▼" }} {{ trend.percent }} %
+      </span>
+    </div>
+  </div>
+</div>
