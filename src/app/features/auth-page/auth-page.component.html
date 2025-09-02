@@ -19,7 +19,6 @@
       <h2>{{ toggleForm() === "login" ? "Authorize" : "Register" }}</h2>
     </div>
 
-    <!-- ! login form -->
     <div class="login-form" *ngIf="toggleForm() === 'login'">
       <form [formGroup]="loginForm">
         <div class="form-groups">
